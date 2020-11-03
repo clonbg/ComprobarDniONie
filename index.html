@@ -1,0 +1,29 @@
+<script>
+  var texto;
+  texto = prompt("Escriba el texto");
+  var letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+  var indiceEstaDni = letrasDNI.indexOf(texto.slice(8, 9).toUpperCase());
+  var indiceDebeDni = parseInt(texto.slice(0, 8)) % 23;
+  var primerasLetras = "XYZ";
+  var indiceEstaNie = letrasDNI.indexOf(texto.slice(8, 9).toUpperCase());
+  var numeroNie = parseInt(
+    primerasLetras.indexOf(texto.slice(0, 1).toUpperCase()) + texto.slice(1, 8)
+  );
+  var indiceDebeNie = numeroNie % 23;
+
+  if (
+    texto.length == 9 &&
+    !isNaN(texto.slice(0, 8)) &&
+    indiceEstaDni == indiceDebeDni
+  ) {
+    alert("es un DNI válido");
+  } else if (
+    texto.length == 9 &&
+    primerasLetras.indexOf(texto.slice(0, 1).toUpperCase()) != -1 &&
+    indiceEstaNie == indiceDebeNie
+  ) {
+    alert("es un NIE václido");
+  } else {
+    alert("No es válido");
+  }
+</script>
